@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../Button/Button';
-import MessageList from '../MessageList/MessageList';
-import {MessageType} from '../../App';
+import Button from '../../Button/Button';
+import MessageList from './MessageList/MessageList';
+import {MessageType} from '../../../App';
 
 export type ListSectionType = {
     messages: MessageType[]
