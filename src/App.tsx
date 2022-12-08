@@ -11,6 +11,8 @@ export type MessageType = {
 }
 
 function App() {
+
+    //------------code for MESSAGE SENDER
     const MAX_MESSAGES_COUNT = 5
 
     const [title, setTitle] = useState('')
@@ -39,24 +41,55 @@ function App() {
         setMessages(copyMessages)
     };
 
+    //------------code for COUNTER
+    const MAX_NUMBER = 5
+    const MIN_NUMBER = 0
+    const [number, setNumber] = useState<number>(0)
+
+    const incNumber = () => {
+     let newNumber = number + 1
+        newNumber < MAX_NUMBER + 1 ? setNumber(newNumber) : setNumber(MAX_NUMBER)
+    };
+
+    const resetNumber = () => {
+        setNumber(MIN_NUMBER)
+    };
 
     return (
-        <div className="App">
-            <Warning
-                messagesNumber={messages.length}
-                maxMessageCount={MAX_MESSAGES_COUNT}
-            />
-            <div className={'inputSection'}>
-                <Input title={title} setTitle={setTitle}/>
-                <Button name={'Send'} onClickCallback={sendCallback} disabled={messages.length === 5}/>
-                <Button name={'Clear'} onClickCallback={clearMessage}/>
+        <div className={'App'}>
+            <div className="MessageSender">
+                <Warning
+                    messagesNumber={messages.length}
+                    maxMessageCount={MAX_MESSAGES_COUNT}
+                />
+                <div className={'inputSection'}>
+                    <Input title={title} setTitle={setTitle}/>
+                    <Button name={'Send'} onClickCallback={sendCallback} disabled={messages.length === 5}/>
+                    <Button name={'Clear'} onClickCallback={clearMessage}/>
+                </div>
+
+                <ListSection
+                    messages={messages}
+                    deleteLastMessage={deleteLastMessage}
+                />
+
             </div>
 
-            <ListSection
-                messages={messages}
-                deleteLastMessage={deleteLastMessage}
-            />
-
+            <div className={'Counter'}>
+                <div className={`Number ${number === MAX_NUMBER ? "NumberMax" : ""}`}>{number}</div>
+                <div className={'ControlSection'}>
+                    <Button
+                        name={"INC"}
+                        onClickCallback={incNumber}
+                        disabled={number === MAX_NUMBER}
+                    />
+                    <Button
+                        name={"RESET"}
+                        onClickCallback={resetNumber}
+                        disabled={number === MIN_NUMBER}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,19 +1,59 @@
 .App {
-background-color: antiquewhite;
+    display: flex;
+}
+
+.MessageSender, .Counter {
+    background-color: antiquewhite;
     width: 400px;
     height: auto;
-    margin:100px auto;
+    margin: 100px auto;
     border: 4px solid grey;
     border-radius: 15px;
-    padding: 50px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.MessageSender Button {
+    background-color: rgba(143, 188, 143, 0.7);
+}
+
 .inputSection {
     display: flex;
-    justify-content: space-between;
     margin: 20px;
     align-items: center;
     justify-content: center;
+}
+.Counter {
+    max-height: 166px;
+}
+
+.Number {
+    background-color: palevioletred;
+    width: 100%;
+    height: 65%;
+    border-radius: 15px;
+    border: 4px solid palevioletred;
+    font-size: 72px;
+    text-align: center;
+}
+
+.NumberMax {
+    color: white;
+    font-weight: bold;
+}
+
+.ControlSection {
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Counter Button {
+    background-color: palevioletred;
 }

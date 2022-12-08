@@ -1,17 +1,12 @@
-.disabled {
-    background-color: red;
-    width: fit-content;
-    margin: 10px;
-    max-width: 50px;
-}
-
 .button {
     max-width: fit-content;
     height: 30px;
-    margin-left: 5px;
-    background-color: rgba(143, 188, 143, 0.7);
-    border-radius: 15px;
+    margin: 0 10px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     padding: 5px 15px;
+}
+.button:hover {
+    opacity: 0.9;
 }
